@@ -1,0 +1,22 @@
+---
+- name: Install Go
+  become: true
+  ansible.builtin.apt:
+    name: golang
+    state: present
+    update_cache: true
+
+- name: "Cloning Kerbrute Repo"
+  ansible.builtin.git:
+    repo: "https://github.com/ropnop/kerbrute"
+    dest: "/tmp/kerbrute"
+
+- name: "Building Kerbrute"
+  shell: |
+    cd /tmp/kerbrute
+    go build
+
+- name: "Moving Kerbrute to bin"
+  copy:
+    src: "/tmp/kerbrute/kerbrute"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.local/bin/"

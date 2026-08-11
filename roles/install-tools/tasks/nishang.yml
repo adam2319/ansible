@@ -1,0 +1,10 @@
+- name: "Cloning Nishang Repo"
+  ansible.builtin.git:
+    repo: "https://github.com/samratashok/nishang.git"
+    dest: "/tmp/nishang"
+
+- name: "Moving Nishang to /opt/tools/powershell"
+  ansible.builtin.copy:
+    src: "/tmp/nishang"
+    dest: "/opt/tools/powershell"
+

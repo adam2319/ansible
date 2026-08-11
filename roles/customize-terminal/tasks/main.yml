@@ -1,0 +1,9 @@
+---
+- name: "Copy qterminal config"
+  copy:
+    src: "{{ role_path }}/files/qterminal.ini"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/qterminal.org/qterminal.ini"
+- name: "Copy zshrc config"
+  copy:
+    src: "{{ role_path }}/files/.zshrc"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.zshrc"

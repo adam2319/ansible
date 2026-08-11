@@ -1,0 +1,6 @@
+---
+- name: Include Kerbrute tasks
+  include_tasks: kerbrute.yml
+
+- name: Include Nishang tasks
+  include_tasks: nishang.yml
