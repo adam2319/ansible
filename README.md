@@ -6,6 +6,6 @@ Initial bare-OS setup, including my dotfiles and the tools I’ve created or col
 - zshrc
 
 # Tools
-- kerbrute
-- nishang
+- kerbrute [repo](https://github.com/ropnop/kerbrute)
+- nishang [repo](https://github.com/samratashok/nishang)
 
