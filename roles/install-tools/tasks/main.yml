@@ -7,3 +7,6 @@
 
 - name: Include Revshell task
   include_tasks: revshells.yml
+
+- name: Include Windows task
+  include_tasks: windows_tools.yml

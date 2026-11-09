@@ -1,6 +1,16 @@
+---
+- name: "Ensure windows exploits destination directory exists"
+  ansible.builtin.file:
+    path: /opt/tools/windows/exploits
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
+
 - name: "Copy windows related exploits"
   ansible.builtin.copy:
-    src: "/windows/exploits/{{ item }}"
+    src: "windows/exploits/{{ item }}"
     dest: "/opt/tools/windows/exploits/{{ item }}"
     mode: '0755'
   loop:
@@ -22,7 +32,7 @@
 
 - name: "Copy powershell related tools"
   ansible.builtin.copy:
-    src: "/windows/powershell/PowerSploit"
+    src: "windows/powershell/PowerSploit"
     dest: "/opt/tools/windows/powershell/"
     mode: '0755'
     directory_mode: '0755'
@@ -32,4 +42,54 @@
     msg:
      - "https://github.com/Solo-Hacking/PowerSploit"
 
+- name: "Ensure windows revshell destination directory exists"
+  ansible.builtin.file:
+    path: /opt/tools/windows/revshells
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
 
+- name: "Copy windows related revshells"
+  ansible.builtin.copy:
+    src: "windows/revshells/{{ item }}"
+    dest: "/opt/tools/windows/revshells/{{ item }}"
+    mode: '0755'
+  loop:
+    - nc.exe
+    - nc.readme
+    - nc64.exe
+    - windows-revshell.ps1
+  loop_control:
+    label: "Copying file: {{ item }}"
+
+- name: netcat download page
+  ansible.builtin.debug:
+    msg: "https://eternallybored.org/misc/netcat/"
+
+- name: "Ensure windows reconnaissance directory exists"
+  ansible.builtin.file:
+    path: /opt/tools/windows/reconnaisance
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
+
+- name: "Copy windows related recon tools"
+  ansible.builtin.copy:
+    src: "windows/reconnaisance/{{ item }}"
+    dest: "/opt/tools/windows/reconnaisance/{{ item }}"
+    mode: '0755'
+  loop:
+    - windows-exploit-suggester.py
+    - windows-exploit-suggester.readme
+  loop_control:
+    label: "Copying file: {{ item }}"
+
+- name: Github repo of next gen windows exploit suggester
+  ansible.builtin.debug:
+    msg: "https://github.com/bitsadmin/wesng"
+
+  

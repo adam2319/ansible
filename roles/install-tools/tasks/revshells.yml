@@ -1,11 +1,23 @@
-- name: Copy files to machine
+---
+- name: "Ensure revshell destination directory exists"
+  ansible.builtin.file:
+    path: /opt/tools/revshell
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  become: true
+
+- name: "Copy files to machine"
   ansible.builtin.copy:
-    src: "/revshell/{{ item }}"
+    src: "revshell/{{ item }}"
     dest: "/opt/tools/revshell/{{ item }}"
     mode: '0755'
+  become: true
   loop:
     - iis-reverse-shell.aspx
     - php-reverse-shell.php
     - php-webshell
     - windows-php-reverse-shell.php
-    - windows-revshell.ps1
+  loop_control:
+    label: "Copying file: {{ item }}"

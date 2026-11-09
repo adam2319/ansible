@@ -1,9 +1,21 @@
 ---
+- name: "Ensure qterminal config directory exists"
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/qterminal.org"
+    state: directory
+    mode: '0755'
+  become: false
+
 - name: "Copy qterminal config"
-  copy:
+  ansible.builtin.copy:
     src: "{{ role_path }}/files/qterminal.ini"
-    dest: "{{ ansible_facts['env']['HOME'] }}/.config/qterminal.org/qterminal.ini"
+    dest: "{{ lookup('env', 'HOME') }}/.config/qterminal.org/qterminal.ini"
+    mode: '0644'
+  become: false
+
 - name: "Copy zshrc config"
-  copy:
+  ansible.builtin.copy:
     src: "{{ role_path }}/files/.zshrc"
-    dest: "{{ ansible_facts['env']['HOME'] }}/.zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
+    mode: '0644'
+  become: false

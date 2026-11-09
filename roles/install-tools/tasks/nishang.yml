@@ -18,3 +18,7 @@
     remote_src: yes
     mode: '0755'
 
+- name: "Github repository for Nishang:"
+  ansible.builtin.debug:
+    msg: "https://github.com/Solo-Hacking/nishang"
+
