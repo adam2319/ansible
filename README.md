@@ -8,4 +8,17 @@ Initial bare-OS setup, including my dotfiles and the tools I’ve created or col
 # Tools
 - kerbrute [repo](https://github.com/ropnop/kerbrute)
 - nishang [repo](https://github.com/samratashok/nishang)
+- powersploit
 
+# windows privesc exploits
+- juicy potato
+- sweet potato
+
+# reverse shells
+- php
+- netcat
+
+# automation tools
+- windows-exploit-suggester
+
+# file copy examples from attacker machine to target hosts
