@@ -3,8 +3,18 @@
     repo: "https://github.com/samratashok/nishang.git"
     dest: "/tmp/nishang"
 
+- name: "Creating folder"
+  ansible.builtin.file:
+    path: /opt/tools/windows/powershell
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+    
 - name: "Moving Nishang to /opt/tools/powershell"
   ansible.builtin.copy:
     src: "/tmp/nishang"
-    dest: "/opt/tools/powershell"
+    dest: "/opt/tools/windows/powershell"
+    remote_src: yes
+    mode: '0755'
 

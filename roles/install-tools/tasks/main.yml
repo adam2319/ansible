@@ -4,3 +4,6 @@
 
 - name: Include Nishang tasks
   include_tasks: nishang.yml
+
+- name: Include Revshell task
+  include_tasks: revshells.yml

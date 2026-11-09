@@ -1,0 +1,35 @@
+- name: "Copy windows related exploits"
+  ansible.builtin.copy:
+    src: "/windows/exploits/{{ item }}"
+    dest: "/opt/tools/windows/exploits/{{ item }}"
+    mode: '0755'
+  loop:
+    - JuicyPotato.exe
+    - JuicyPotato.readme
+    - SweetPotato.exe
+    - SweetPotato.readme
+  loop_control:
+    label: "Copying file: {{ item }}"
+
+
+- name: Repositories
+  ansible.builtin.debug:
+    msg:
+      - "https://github.com/Solo-Hacking/SweetPotato"
+      - "https://github.com/Solo-Hacking/juicy-potato"
+      - "https://github.com/Solo-Hacking/SweetPotato_2"
+
+
+- name: "Copy powershell related tools"
+  ansible.builtin.copy:
+    src: "/windows/powershell/PowerSploit"
+    dest: "/opt/tools/windows/powershell/"
+    mode: '0755'
+    directory_mode: '0755'
+
+- name: Repositories
+  ansible.builtin.debug:
+    msg:
+     - "https://github.com/Solo-Hacking/PowerSploit"
+
+

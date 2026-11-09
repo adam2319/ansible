@@ -1,0 +1,11 @@
+- name: Copy files to machine
+  ansible.builtin.copy:
+    src: "/revshell/{{ item }}"
+    dest: "/opt/tools/revshell/{{ item }}"
+    mode: '0755'
+  loop:
+    - iis-reverse-shell.aspx
+    - php-reverse-shell.php
+    - php-webshell
+    - windows-php-reverse-shell.php
+    - windows-revshell.ps1

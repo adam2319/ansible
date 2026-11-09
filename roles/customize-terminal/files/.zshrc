@@ -261,3 +261,7 @@ fi
 # Created by `pipx` on 2026-08-10 20:38:46
 export PATH="$PATH:/home/notroot/.local/bin"
 export PATH=$HOME/.local/bin:$PATH
+
+# custom
+bindkey '^P' up-line-or-history
+bindkey '^N' down-line-or-history
