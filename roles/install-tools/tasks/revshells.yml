@@ -19,5 +19,6 @@
     - php-reverse-shell.php
     - php-webshell
     - windows-php-reverse-shell.php
+    - revshell_jenkins.groovy
   loop_control:
     label: "Copying file: {{ item }}"
