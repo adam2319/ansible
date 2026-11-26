@@ -10,6 +10,7 @@
     owner: root
     group: root
     mode: '0755'
+  become: true
     
 - name: "Moving Nishang to /opt/tools/powershell"
   ansible.builtin.copy:
@@ -17,6 +18,7 @@
     dest: "/opt/tools/windows/powershell"
     remote_src: yes
     mode: '0755'
+  become: true
 
 - name: "Github repository for Nishang:"
   ansible.builtin.debug:

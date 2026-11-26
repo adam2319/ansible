@@ -18,6 +18,10 @@
     - JuicyPotato.readme
     - SweetPotato.exe
     - SweetPotato.readme
+    - RoguePotato.exe
+    - RoguePotato.readme
+    - PrintSpoofer.exe
+    - PrintSpoofer.readme
   loop_control:
     label: "Copying file: {{ item }}"
 
@@ -92,4 +96,9 @@
   ansible.builtin.debug:
     msg: "https://github.com/bitsadmin/wesng"
 
-  
+- name: "Install gcc-mingw-w64"
+  ansible.builtin.apt:
+    name: gcc-mingw-w64
+    state: present
+    update_cache: true
+  become: true 

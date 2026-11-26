@@ -2,6 +2,7 @@
 - name: "Customizing new OS"
   hosts: localhost
   connection: local
+  become: true
 
   roles:
     - role: "roles/configure-tmux"
